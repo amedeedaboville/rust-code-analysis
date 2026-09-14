@@ -190,9 +190,6 @@ fn increment_by_one(stats: &mut Stats) {
     stats.structural += 1;
 }
 
-/// Nesting state threaded through the DFS in `metrics()`: the traversal sets `parent` before
-/// each `compute` call and reads back `current` to hand to the node's children, so no node-id
-/// map and no `Node::parent()` (which tree-sitter answers by descending from the root).
 #[derive(Debug, Default, Clone)]
 pub struct NestingMap {
     pub parent: (usize, usize, usize),
